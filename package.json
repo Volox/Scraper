@@ -1,0 +1,29 @@
+{
+  "name": "twitter-scraper-cli",
+  "version": "1.0.0",
+  "description": "Scrape tweets, optionally enrich them, and save them to mongo",
+  "bin": {
+    "twitter-scraper-cli": "cli.js"
+  },
+  "preferGlobal": true,
+  "scripts": {
+    "build": "tslint src/* && tsc",
+    "postinstall": "npm run build",
+    "pretest": "npm run build",
+    "test": "twitter-scraper-cli -T twitter.json -M mongo.json -q \"#yourexpo2015\""
+  },
+  "dependencies": {
+    "@volox/social-post-wrapper": "2.x",
+    "commander": "2.x",
+    "debug": "2.x",
+    "mongodb": "^2.1.16",
+    "twit": "2.x",
+    "twitter-scraper": "4.x"
+  },
+  "devDependencies": {
+    "chai": "3.x",
+    "mocha": "2.x"
+  },
+  "author": "Volox",
+  "license": "MIT"
+}

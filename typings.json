@@ -1,0 +1,15 @@
+{
+  "name": "twitter-scraper-cli",
+  "version": false,
+  "dependencies": {
+    "cheerio": "github:Volox/typed-cheerio#66bf518dec0e175fc5b08961304bdbf9bd29f8e5",
+    "debug": "registry:npm/debug#2.0.0+20160211003958",
+    "mongodb": "registry:npm/mongodb#2.1.0+20160420233059",
+    "twit": "registry:npm/twit#2.0.0+20160420181909"
+  },
+  "ambientDependencies": {
+    "commander": "registry:dt/commander#2.3.0+20160317120654",
+    "geojson": "registry:dt/geojson#0.0.0+20160319143602",
+    "node": "registry:dt/node#4.0.0+20160412142033"
+  }
+}

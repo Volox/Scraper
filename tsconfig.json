@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "outDir": "build",
+    "sourceMap": true,
+    "noImplicitAny": false,
+    "target": "es6"
+  },
+  "files": [
+    "typings/main.d.ts",
+    "src/utils.ts",
+    "src/scraper.ts"
+  ],
+  "filesGlob": [
+    "typings/main.d.ts",
+    "src/**/*.ts"
+  ]
+}
