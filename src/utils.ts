@@ -22,6 +22,7 @@ const MAX_TWEETS = 100;
 export interface TwitterCredentials {
   key: string;
   secret: string;
+  appOnly?: boolean;
   token?: string;
   tokenSecret?: string;
 }
@@ -56,12 +57,19 @@ export class Enrich extends Transform {
     super( { objectMode: true } );
 
     this.credentials = credentials;
-    this.api = new Twit( {
+
+    const options: Twit.Options = {
       consumer_key: credentials.key,
       consumer_secret: credentials.secret,
-      access_token: credentials.token,
-      access_token_secret: credentials.tokenSecret,
-    } );
+    };
+    if( credentials.appOnly===true ) {
+      options.app_only_auth = true;
+    } else {
+      options.access_token = credentials.token;
+      options.access_token_secret = credentials.tokenSecret;
+    }
+
+    this.api = new Twit( options );
   }
 
   _transform( data, enc, cb ) {
