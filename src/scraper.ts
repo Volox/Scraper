@@ -21,7 +21,7 @@ import {
 // Constant declaration
 const debug = initDebug( 'scraper' );
 const CWD = process.cwd();
-const pkg = require( resolve( __dirname, 'package.json' ) );
+const pkg = require( resolve( __dirname, '..', 'package.json' ) );
 
 // Module variables declaration
 
