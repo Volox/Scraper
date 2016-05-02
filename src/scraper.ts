@@ -85,10 +85,13 @@ async function parseArguments( args: string[] ) {
       debug( 'Using the mongo config file: %s', program[ 'mongo' ] );
       config = require( resolve( CWD, program[ 'mongo' ] ) );
     } else {
-      config.host = program[ 'host' ];
-      config.port = program[ 'port' ];
-      config.database = program[ 'database' ];
-      config.collection = program[ 'collection' ];
+      debug( 'Using the config from the cli' );
+      config = {
+        host: program[ 'host' ],
+        port: program[ 'port' ],
+        database: program[ 'database' ],
+        collection: program[ 'collection' ],
+      };
     }
     debug( 'Using the mongo config: ', config );
 
@@ -108,10 +111,12 @@ async function parseArguments( args: string[] ) {
       debug( 'Using the twitter config file: %s', program[ 'twitter' ] );
       config = require( resolve( CWD, program[ 'twitter' ] ) );
     } else {
-      config.key = program[ 'key' ];
-      config.secret = program[ 'secret' ];
-      config.token = program[ 'token' ];
-      config.tokenSecret = program[ 'tokenSecret' ];
+      config = {
+        key: program[ 'key' ],
+        secret: program[ 'secret' ],
+        token: program[ 'token' ],
+        tokenSecret: program[ 'tokenSecret' ],
+      };
     }
     debug( 'Using the twitter config: ', config );
 

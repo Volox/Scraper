@@ -3,7 +3,7 @@
   "version": "1.0.3",
   "description": "Scrape tweets, optionally enrich them, and save them to mongo",
   "bin": {
-    "twitter-scraper-cli": "cli.js"
+    "twitter-scraper-cli": "node debug cli.js"
   },
   "preferGlobal": true,
   "scripts": {
@@ -22,7 +22,9 @@
   },
   "devDependencies": {
     "chai": "3.x",
-    "mocha": "2.x"
+    "mocha": "2.x",
+    "tslint": "^3.8.1",
+    "typescript": "^1.8.10"
   },
   "author": "Volox",
   "license": "MIT"
