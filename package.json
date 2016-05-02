@@ -1,6 +1,6 @@
 {
   "name": "twitter-scraper-cli",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "Scrape tweets, optionally enrich them, and save them to mongo",
   "bin": {
     "twitter-scraper-cli": "node debug cli.js"
