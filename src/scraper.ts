@@ -28,14 +28,16 @@ const pkg = require( resolve( __dirname, '..', 'package.json' ) );
 // Module interfaces declaration
 
 // Module functions declaration
-async function startScraper( query: string, transform: Transform, write: Writable ) {
+function startScraper( query: string, transform: Transform, write: Writable ) {
   const s = new Scraper( query );
 
   // Pipe the components
   s.pipe( transform ).pipe( write );
 
   // Start the scraper
-  return s.start();
+  s.start();
+
+  return s;
 }
 async function parseArguments( args: string[] ) {
   program
@@ -123,8 +125,8 @@ async function parseArguments( args: string[] ) {
     transform = new Enrich( config );
   }
 
-  const total = await startScraper( query, transform, write );
-  debug( 'All done, got %d tweets', total );
+  const scraper = startScraper( query, transform, write );
+  scraper.on( 'end', () => debug( 'All done, got %d tweets', scraper.total ) );
 }
 // Module class declaration
 

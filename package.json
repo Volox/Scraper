@@ -18,7 +18,7 @@
     "debug": "2.x",
     "mongodb": "2.x",
     "twit": "2.x",
-    "twitter-scraper": "4.x"
+    "twitter-scraper": "5.x"
   },
   "devDependencies": {
     "chai": "3.x",
