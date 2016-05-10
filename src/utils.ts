@@ -108,7 +108,10 @@ export class Enrich extends Transform {
 
       return cb();
     } )
-    .catch( e => cb( e ) );
+    .catch( err => {
+      debug( 'Twitter Error', err );
+      return this.getFullTweets( rawTweets, cb );
+    } );
   }
 }
 export class MongoWriter extends Writable {
@@ -124,7 +127,10 @@ export class MongoWriter extends Writable {
     return this.collection
     .insertOne( data )
     .then( () => cb() )
-    .catch( err => cb( err ) );
+    .catch( err => {
+      debug( 'Mongo error', err );
+      return cb();
+    } );
   }
 }
 export class ToConsole extends Writable {
