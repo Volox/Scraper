@@ -34,6 +34,12 @@ export interface MongoConfig {
 }
 
 // Module functions declaration
+function wait( milliseconds: number ): Promise<void> {
+  return new Promise( res => {
+    setTimeout( res, milliseconds );
+  } )
+  .then( ()=> {} );
+}
 export async function connect( config: MongoConfig ) {
   const url = format( {
     protocol: 'mongodb',
@@ -110,7 +116,9 @@ export class Enrich extends Transform {
     } )
     .catch( err => {
       debug( 'Twitter Error', err );
-      return this.getFullTweets( rawTweets, cb );
+
+      return wait( WINDOW )
+      .then( () => this.getFullTweets( rawTweets, cb ) );
     } );
   }
 }
@@ -139,7 +147,7 @@ export class ToConsole extends Writable {
   }
 
   _write( data, enc, cb ) {
-    // console.log( data );
+    console.log( data );
     return cb();
   }
 }
