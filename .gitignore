@@ -33,6 +33,7 @@ node_modules
 build
 
 # Do not sync config files
+.vscode
 
 ### SublimeText project files
 *.sublime-workspace
