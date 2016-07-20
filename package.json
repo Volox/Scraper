@@ -9,8 +9,7 @@
   "scripts": {
     "build": "tslint src/**/*.ts && tsc",
     "prepublish": "npm run build",
-    "pretest": "npm run build",
-    "test": "twitter-scraper-cli -T twitter.json -M mongo.json -q \"#yourexpo2015\""
+    "pretest": "npm run build"
   },
   "dependencies": {
     "@volox/social-post-wrapper": "2.x",
